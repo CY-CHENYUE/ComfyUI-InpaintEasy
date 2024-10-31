@@ -16,7 +16,7 @@ ComfyUI InpaintEasy是一组优化的局部重绘(Inpaint)节点，提供了更�
 2. 使用以下命令克隆仓库:
 ```bash
 git clone https://github.com/CY-CHENYUE/ComfyUI-InpaintEasy.git
-
+```
 
 ## 节点说明
 
