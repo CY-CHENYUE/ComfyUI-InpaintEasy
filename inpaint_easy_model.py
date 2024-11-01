@@ -20,7 +20,7 @@ class InpaintEasyModel:
                 "mask": ("MASK",),
                 "vae": ("VAE",),
                 "strength": ("FLOAT", {
-                    "default": 0.35,
+                    "default": 0.5,
                     "min": 0.0,
                     "max": 10.0,
                     "step": 0.01
