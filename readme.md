@@ -11,7 +11,9 @@ ComfyUI InpaintEasy是一组优化的局部重绘(Inpaint)节点，提供了更�
 - 智能合并功能，无缝将重绘结果融合回原图
 
 ## 安装方法
-
+第一种方式：
+在ComfyUI-Manager中搜索`ComfyUI-InpaintEasy`安装，之后重启ComfyUI。
+第二种方式：
 1. 打开ComfyUI的`custom_nodes`文件夹
 2. 使用以下命令克隆仓库:
 ```bash
