@@ -15,8 +15,6 @@ class InpaintEasyModel:
                 "positive": ("CONDITIONING",),
                 "negative": ("CONDITIONING",),
                 "inpaint_image": ("IMAGE",),
-                "control_net": ("CONTROL_NET",),
-                "control_image": ("IMAGE",),
                 "mask": ("MASK",),
                 "vae": ("VAE",),
                 "strength": ("FLOAT", {
@@ -37,6 +35,10 @@ class InpaintEasyModel:
                     "max": 1.0,
                     "step": 0.001
                 }),
+            },
+            "optional": {
+                "control_net": ("CONTROL_NET",),
+                "control_image": ("IMAGE",),
             }
         }
 
@@ -46,8 +48,9 @@ class InpaintEasyModel:
     
     CATEGORY = "InpaintEasy"
 
-    def combine_conditioning(self, positive, negative, control_net, inpaint_image, control_image, mask, vae, 
-                           strength=1.0, start_percent=0.0, end_percent=1.0):
+    def combine_conditioning(self, positive, negative, inpaint_image, mask, vae, 
+                           strength=1.0, start_percent=0.0, end_percent=1.0,
+                           control_net=None, control_image=None):
         x = (inpaint_image.shape[1] // 8) * 8
         y = (inpaint_image.shape[2] // 8) * 8
         mask = torch.nn.functional.interpolate(mask.reshape((-1, 1, mask.shape[-2], mask.shape[-1])), 
@@ -83,7 +86,7 @@ class InpaintEasyModel:
             })
             inpaint_conditioning.append(c)
      
-        if strength == 0:
+        if strength == 0 or control_net is None or control_image is None:
             return (inpaint_conditioning[0], inpaint_conditioning[1], out_latent)
 
         control_hint = control_image.movedim(-1,1)
