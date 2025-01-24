@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-inpainteasy"
+description = "InpaintEasy is a set of optimized local repainting (Inpaint) nodes that provide a simpler and more powerful local repainting workflow. It makes local repainting work easier and more efficient with intelligent cropping and merging functions."
+version = "1.0.1"
+license = {file = "LICENSE"}
+dependencies = ["numpy"]
+
+[project.urls]
+Repository = "https://github.com/CY-CHENYUE/ComfyUI-InpaintEasy"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "cychenyue"
+DisplayName = "ComfyUI-InpaintEasy"
+Icon = ""
